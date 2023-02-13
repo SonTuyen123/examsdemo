@@ -1,0 +1,37 @@
+Bai 1:
+Hiển thị tất cả các email bị trùng trong bảng “Canhan”.
+
+ SELECT email
+ From   Canhan
+ Group  BY Canhan.email
+ Having Count(*) > 1
+
+
+Hiển thị tất cả các email không bị trùng trong bảng “Canhan”
+
+ SELECT DISTINCT Canhan.email
+ FROM Canhan 
+ WHERE Canhan.email NOT IN (
+    SELECT email
+ FROM   Canhan
+ GROUP BY Canhan.email
+ HAVING Count(*) > 1
+ )
+ OERDER BY Canhan.email ASC
+
+ ------------------------------------------------------
+
+Bai 2:
+câu lệnh SQL để hiển thị giá trị lương của nhân viên có mức lượng cao thứ nhì trong bảng “luong”.
+
+SELECT MAX(salary) FROM “luong”  
+WHERE salary NOT IN ( SELECT Max(salary) FROM “luong” );
+
+--------------------------------------------------------
+
+Bai 3:
+
+
+
+
+
